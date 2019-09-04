@@ -1,6 +1,8 @@
 "Vim-Plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'itchyny/lightline.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 "Automatic toggling of relative and absolute line numbers
@@ -18,3 +20,7 @@ set si
 
 "Highlight cursorline
 set cursorline
+
+"Base16 Theme
+let base16colorspace=256
+colorscheme base16-tomorrow-night
