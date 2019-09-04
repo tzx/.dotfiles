@@ -1,0 +1,6 @@
+# Fish like autosuggestions
+zsh-users/zsh-autosuggestions
+
+# Pure prompt
+mafredri/zsh-async
+sindresorhus/pure
