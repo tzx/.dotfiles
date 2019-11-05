@@ -1,6 +1,9 @@
-# Startup
 # Lock Screen
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# Brightness Keys
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10  # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10  # decrease screen brightness
 
 set $mod Mod4
 
@@ -173,5 +176,3 @@ client.focused          $blue $blue $darkgray $purple $blue
 client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 client.urgent           $red $red $white $red $red
-
-
