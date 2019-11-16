@@ -3,7 +3,11 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+"LaTeX
+Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex'}
 call plug#end()
+let g:livepreview_previewer = 'zathura'
 
 "Automatic toggling of relative and absolute line numbers
 set number relativenumber
