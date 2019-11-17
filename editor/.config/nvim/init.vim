@@ -28,3 +28,7 @@ set cursorline
 "Base16 Theme
 let base16colorspace=256
 colorscheme base16-tomorrow-night
+
+" Persistent Undo
+set undofile
+set undodir=~/.vimundo
