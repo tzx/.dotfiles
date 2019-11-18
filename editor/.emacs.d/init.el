@@ -18,6 +18,8 @@
  '(custom-safe-themes
    (quote
     ("3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" default)))
+ '(fancy-splash-image
+   "~/.emacs.d/memes/Miyamizu_Mitsuha_On_Ownership_And_Borrowing.png")
  '(package-selected-packages (quote (evil base16-theme which-key use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
