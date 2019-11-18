@@ -1,26 +1,14 @@
+;; Add Melpa
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+;; Load Config Org File
+(org-babel-load-file (expand-file-name "~/dotfiles/editor/.emacs.d/config.org"))
 
-(use-package which-key
-  :ensure t
-  :init
-  (which-key-mode))
-
-(use-package base16-theme
-  :ensure t)
-
-(use-package evil
-  :ensure t)
-
-(tool-bar-mode -1)
-
+;; Custom Variables
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

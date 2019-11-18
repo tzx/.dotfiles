@@ -1,0 +1,19 @@
+* CONFIG (ORGANIZE LATER)
+#+BEGIN_SRC emacs-lisp
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(use-package which-key
+  :ensure t
+  :init
+  (which-key-mode))
+
+(use-package base16-theme
+  :ensure t)
+
+(use-package evil
+  :ensure t)
+
+(tool-bar-mode -1)
+#+END_SRC
