@@ -29,7 +29,17 @@
     (evil-mode 1))
   #+END_SRC
 * Theming
+** Colors
   #+BEGIN_SRC emacs-lisp
   (use-package base16-theme
     :ensure t) 
   #+END_SRC
+** Dashboard
+   #+BEGIN_SRC emacs-lisp
+     (use-package dashboard
+       :ensure t
+       :config
+	 (dashboard-setup-startup-hook)
+	 (setq dashboard-startup-banner "~/.emacs.d/memes/Miyamizu_Mitsuha_On_Ownership_And_Borrowing.png")
+	 (setq dashboard-footer "I WILL START MY TURN BY PLAYING POT OF GREED WHICH ALLOWS ME TO DRAW TWO MORE CARDS."))
+   #+END_SRC
