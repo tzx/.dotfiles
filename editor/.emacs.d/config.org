@@ -44,12 +44,18 @@
 	 (setq dashboard-footer "I WILL START MY TURN BY PLAYING POT OF GREED WHICH ALLOWS ME TO DRAW TWO MORE CARDS."))
    #+END_SRC
 ** Powerline
-   Uses Spaceline
+*** Font Icons
+    #+BEGIN_SRC emacs-lisp
+    (use-package all-the-icons)
+    #+END_SRC
+*** Doomline
    #+BEGIN_SRC emacs-lisp
-     (use-package spaceline
-       :ensure t
-       :config
-       (spaceline-emacs-theme))
+   (use-package doom-modeline
+      :ensure t
+      :hook (after-init . doom-modeline-mode)
+      :config
+      (setq doom-modeline-minor-modes t)
+      (setq doom-modeline-evil-state-icon nil))
    #+END_SRC
 * Terminal
   #+BEGIN_SRC emacs-lisp
