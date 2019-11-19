@@ -63,7 +63,6 @@
      :ensure t
      :config
      (setq company-idle-delay 0)
-     (setq company-minimum-prefix-length 3)
      
      (global-company-mode t))
    #+END_SRC
@@ -81,4 +80,14 @@
    :hook (prog-mode . lsp)
    :config
    (setq lsp-auto-configure t))
+   #+END_SRC
+* Python
+** LSP
+   #+BEGIN_SRC emacs-lisp
+   (use-package lsp-python-ms
+   :ensure t
+   :hook (python-mode . (lambda()
+                           (require 'lsp-python-ms)
+			   (lsp)))
+   )
    #+END_SRC
