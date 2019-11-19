@@ -19,7 +19,7 @@
    (quote
     ("3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" default)))
  '(fancy-splash-image nil)
- '(package-selected-packages (quote (evil base16-theme which-key use-package))))
+ '(package-selected-packages (quote (vterm evil base16-theme which-key use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
