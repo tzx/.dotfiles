@@ -43,6 +43,14 @@
 	 (setq dashboard-startup-banner "~/.emacs.d/memes/Miyamizu_Mitsuha_On_Ownership_And_Borrowing.png")
 	 (setq dashboard-footer "I WILL START MY TURN BY PLAYING POT OF GREED WHICH ALLOWS ME TO DRAW TWO MORE CARDS."))
    #+END_SRC
+** Powerline
+   Uses Spaceline
+   #+BEGIN_SRC emacs-lisp
+     (use-package spaceline
+       :ensure t
+       :config
+       (spaceline-emacs-theme))
+   #+END_SRC
 * Terminal
   #+BEGIN_SRC emacs-lisp
     (use-package vterm
