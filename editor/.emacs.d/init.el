@@ -14,15 +14,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(blink-cursor-mode nil)
- '(custom-enabled-themes (quote (base16-tomorrow-night)))
- '(custom-safe-themes
-   (quote
-    ("3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" default)))
- '(fancy-splash-image nil)
  '(package-selected-packages
    (quote
-    (spaceline vterm evil base16-theme which-key use-package))))
+    (lsp-python-ms company-lsp company vterm doom-modeline dashboard evil which-key use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

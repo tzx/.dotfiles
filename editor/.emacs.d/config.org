@@ -31,8 +31,10 @@
 * Theming
 ** Colors
   #+BEGIN_SRC emacs-lisp
-  (use-package base16-theme
-    :ensure t) 
+    (use-package base16-theme
+      :ensure t
+      :config
+      (load-theme 'base16-gruvbox-dark-hard t))
   #+END_SRC
 ** Dashboard
    #+BEGIN_SRC emacs-lisp
