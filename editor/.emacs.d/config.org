@@ -11,6 +11,11 @@
        (package-refresh-contents)
        (package-install 'use-package))
    #+END_SRC
+** Try packages
+   #+BEGIN_SRC emacs-lisp
+     (use-package try
+       :ensure t)
+   #+END_SRC
 * Which-Key
   Brings up some help
   #+BEGIN_SRC emacs-lisp
