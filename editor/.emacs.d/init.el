@@ -16,7 +16,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (try auctex counsel lsp-python-ms company-lsp company vterm doom-modeline dashboard evil which-key use-package))))
+    (latex-preview-pane try auctex counsel lsp-python-ms company-lsp company vterm doom-modeline dashboard evil which-key use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
