@@ -16,6 +16,9 @@ compinit
 #COLORS LS
 alias ls='ls --color=auto'
 
+# Environmental variables
+export EDITOR=nvim
+
 #Sourcing antibody plugins
 source ~/.config/zsh/zsh_plugins.sh
 
