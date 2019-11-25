@@ -5,6 +5,10 @@
    (menu-bar-mode -1)
    (scroll-bar-mode -1)
    #+END_SRC
+** Show matching parenthesis
+   #+BEGIN_SRC emacs-lisp
+     (show-paren-mode 1)
+   #+END_SRC
 ** Use use-package
    #+BEGIN_SRC emacs-lisp
      (unless (package-installed-p 'use-package)
