@@ -28,6 +28,10 @@
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x C-b") 'ibuffer)
 #+END_SRC
+** Backup directory
+   #+BEGIN_SRC emacs-lisp
+     (setq backup-directory-alist '(("." . "~/.emacs.d/saves/")))
+   #+END_SRC
 * Which-Key
   Brings up some help
   #+BEGIN_SRC emacs-lisp
