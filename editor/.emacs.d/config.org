@@ -149,3 +149,7 @@
     (use-package latex-preview-pane
       :ensure t)
   #+END_SRC
+  Indent Fix?
+  #+BEGIN_SRC 
+  (setq LaTeX-item-indent 0)
+  #+END_SRC
