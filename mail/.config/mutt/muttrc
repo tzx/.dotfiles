@@ -1,11 +1,59 @@
+set mailcap_path = "~/.config/mutt/mailcap"
+auto_view text/html
+alternative_order text/plain text/html
+
+# The date you see on your first screen
+set date_format="%y-%m-%d %T"
+# The format you see on your first screen
+set index_format="%2C | %Z [%D] %-30.30F (%-4.4c) %s"
+# The "powerline" you see 
+set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
+
 set imap_user = "timmyxiao1@gmail.com"
 
 set folder = "imaps://timmyxiao1@gmail.com@imap.gmail.com:993/"
-set spoolfile = "+INBOX"
+set my_user = "timmyxiao1@gmail.com"
+set realname = "Timmy Xiao"
+set from = "timmyxiao1@gmail.com"
+set use_from = yes
+set smtp_url="smtp://timmyxiao1@gmail.com@smtp.gmail.com:587"
+set ssl_force_tls = yes
+set ssl_starttls=yes
 
+set spoolfile = "+INBOX"
+unset record
+#set record =  "+[Gmail]/Sent Mail"
+set postponed = "+[Gmail]/Drafts"
+set trash =  "+[Gmail]/Trash"
+
+mailboxes "+INBOX"
+mailboxes "+[Gmail]/Sent"
+mailboxes "+[Gmail]/Trash"
+mailboxes "+[Gmail]/Drafts"
+mailboxes "+[Gmail]/Starred"
+mailboxes "+[Gmail]/Important"
+mailboxes "+[Gmail]/All Mail"
+mailboxes "+[Gmail]/Spam"
+
+
+# Sidebar formatting
 set sidebar_visible
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
+
+set sort=reverse-threads
+set sort_aux=last-date-received
+
+# Store outgoing messages in folder they were composed in 
+folder-hook . 'set record=^'
+
+
+
+
+
+
+
+
 
 # Neomutt Monokai Theme
 
