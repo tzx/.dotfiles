@@ -2,6 +2,22 @@ set mailcap_path = "~/.config/mutt/mailcap"
 auto_view text/html
 alternative_order text/plain text/html
 
+# Keybindings
+bind index,pager \CP sidebar-prev
+# Ctrl-Shift-P – Previous Mailbox
+bind index,pager \CN sidebar-next
+# Ctrl-Shift-N – Next Mailbox
+bind index,pager \CO sidebar-open
+# Ctrl-Shift-O – Open Highlighted Mailbox
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
 # The date you see on your first screen
 set date_format="%y-%m-%d %T"
 # The format you see on your first screen
@@ -10,7 +26,6 @@ set index_format="%2C | %Z [%D] %-30.30F (%-4.4c) %s"
 set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
 
 set imap_user = "timmyxiao1@gmail.com"
-
 set folder = "imaps://timmyxiao1@gmail.com@imap.gmail.com:993/"
 set my_user = "timmyxiao1@gmail.com"
 set realname = "Timmy Xiao"
