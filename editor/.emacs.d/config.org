@@ -30,8 +30,16 @@
 #+END_SRC
 ** Backup directory
    #+BEGIN_SRC emacs-lisp
-     (setq backup-directory-alist '(("." . "~/.emacs.d/saves/")))
+   (setq backup-directory-alist '(("." . "~/.emacs.d/saves/")))
    #+END_SRC
+** Global wrapping of lines
+#+BEGIN_SRC emacs-lisp
+(global-visual-line-mode 1)
+#+END_SRC
+** Make =yes or no= prompts shorter
+#+BEGIN_SRC emacs-lisp
+(defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
 * Which-Key
   Brings up some help
   #+BEGIN_SRC emacs-lisp
@@ -81,20 +89,22 @@
 * Org Mode
 ** Org Bullets  
 #+BEGIN_SRC emacs-lisp
-  (use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+(use-package org-bullets
+:ensure t
+:config
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
   #+END_SRC 
-** Line wrapping
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'org-mode-hook
-	      '(lambda ()
-		 (visual-line-mode 1)))
-#+END_SRC
 ** Indent 
 #+BEGIN_SRC emacs-lisp
   (add-hook 'org-mode-hook 'org-indent-mode)
+#+END_SRC
+** Hide emphasis
+#+BEGIN_SRC emacs-lisp
+(setq org-hide-emphasis-markers t)
+#+END_SRC
+** Fontify code in code blocks
+#+BEGIN_SRC emacs-lisp 
+(setq org-src-fontify-natively t)
 #+END_SRC
 * Theming
 ** Colors
