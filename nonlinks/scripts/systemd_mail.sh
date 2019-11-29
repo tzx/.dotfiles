@@ -1,2 +1,3 @@
 echo "Making emails autosync with systemd"
-systemctl --user enable ~/.config/systemd/user/mbsync.timer
+systemctl --user enable mbsync.timer
+systemctl --user start mbsync.timer
