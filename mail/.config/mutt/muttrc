@@ -2,6 +2,9 @@ set mailcap_path = "~/.config/mutt/mailcap"
 auto_view text/html
 alternative_order text/plain text/html
 
+# Notifications
+set new_mail_command="dunstify -r 420 'New Email'"
+
 # Keybindings
 bind index,pager \CP sidebar-prev
 # Ctrl-Shift-P – Previous Mailbox
@@ -19,37 +22,30 @@ bind attach,index g first-entry
 bind attach,index G last-entry
 
 # The date you see on your first screen
-set date_format="%y-%m-%d %T"
+set date_format="%D %R"
 # The format you see on your first screen
 set index_format="%2C | %Z [%D] %-30.30F (%-4.4c) %s"
 # The "powerline" you see 
 set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
 
-set imap_user = "timmyxiao1@gmail.com"
-set folder = "imaps://timmyxiao1@gmail.com@imap.gmail.com:993/"
-set my_user = "timmyxiao1@gmail.com"
 set realname = "Timmy Xiao"
 set from = "timmyxiao1@gmail.com"
 set use_from = yes
-set smtp_url="smtp://timmyxiao1@gmail.com@smtp.gmail.com:587"
-set ssl_force_tls = yes
-set ssl_starttls=yes
 
-set spoolfile = "+INBOX"
-unset record
-#set record =  "+[Gmail]/Sent Mail"
-set postponed = "+[Gmail]/Drafts"
-set trash =  "+[Gmail]/Trash"
+set mbox_type=Maildir
+set folder=~/Mail/gmail
+set spoolfile=+INBOX
+set header_cache=~/.cache/mutt
+
+set record =  "+Sent"
+set postponed = "+Drafts"
+set trash =  "+Trash"
 
 mailboxes "+INBOX"
-mailboxes "+[Gmail]/Sent"
-mailboxes "+[Gmail]/Trash"
-mailboxes "+[Gmail]/Drafts"
-mailboxes "+[Gmail]/Starred"
-mailboxes "+[Gmail]/Important"
-mailboxes "+[Gmail]/All Mail"
-mailboxes "+[Gmail]/Spam"
-
+mailboxes "+Sent"
+mailboxes "+Trash"
+mailboxes "+Drafts"
+mailboxes "+All_Mail"
 
 # Sidebar formatting
 set sidebar_visible
