@@ -183,3 +183,5 @@ client.urgent           $red $red $white $red $red
 bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+# Neomutt in scratchpad
+bindsym $mod+m [title="^.*neomutt$"] scratchpad show, resize set 1368 768, move position center
