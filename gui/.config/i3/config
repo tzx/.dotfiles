@@ -2,8 +2,12 @@
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Brightness Keys
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10  # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10  # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10  # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10  # decrease screen brightness
+# Volume Keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 set $mod Mod4
 
