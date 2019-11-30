@@ -18,6 +18,7 @@ alias ls='ls --color=auto'
 
 # Environmental variables
 export EDITOR=nvim
+export BROWSER=firefox
 
 #Sourcing antibody plugins
 source ~/.config/zsh/zsh_plugins.sh

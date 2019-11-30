@@ -23,6 +23,8 @@ bind attach,index g first-entry
 bind attach,index G last-entry
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+# Open in external browser
+macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mail.html<enter><shell-escape>$BROWSER ~/.cache/mail.html<enter>"
 
 # The date you see on your first screen
 set date_format="%D %R"
