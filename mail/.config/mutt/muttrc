@@ -2,6 +2,10 @@ set mailcap_path = "~/.config/mutt/mailcap"
 auto_view text/html
 alternative_order text/plain text/html
 
+# Character Encoding
+set send_charset = "utf-8:iso-8859-1:us-ascii"
+set charset = "utf-8"
+
 # Notifications
 set new_mail_command="dunstify -r 420 'New Email'"
 
@@ -28,9 +32,10 @@ set index_format="%2C | %Z [%D] %-30.30F (%-4.4c) %s"
 # The "powerline" you see 
 set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
 
-set realname = "Timmy Xiao"
-set from = "timmyxiao1@gmail.com"
-set use_from = yes
+set realname ="Timmy Xiao"
+set sendmail="/usr/bin/msmtp -a gmail"
+set from="timmyxiao1@gmail.com"
+set edit_headers=yes
 
 set mbox_type=Maildir
 set folder=~/Mail/gmail
