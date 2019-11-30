@@ -11,11 +11,8 @@ set new_mail_command="dunstify -r 420 'New Email'"
 
 # Keybindings
 bind index,pager \CP sidebar-prev
-# Ctrl-Shift-P – Previous Mailbox
 bind index,pager \CN sidebar-next
-# Ctrl-Shift-N – Next Mailbox
 bind index,pager \CO sidebar-open
-# Ctrl-Shift-O – Open Highlighted Mailbox
 bind pager j next-line
 bind pager k previous-line
 bind attach,index,pager \CD next-page
@@ -24,6 +21,8 @@ bind pager g top
 bind pager G bottom
 bind attach,index g first-entry
 bind attach,index G last-entry
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
 # The date you see on your first screen
 set date_format="%D %R"
