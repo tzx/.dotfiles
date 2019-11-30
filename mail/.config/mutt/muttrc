@@ -44,7 +44,8 @@ set header_cache=~/.cache/mutt
 
 set record =  "+Sent"
 set postponed = "+Drafts"
-set trash =  "+Trash"
+## Don't set Trash in Gmail, because IMAP does it for you already
+# set trash =  "+Trash"
 
 mailboxes "+INBOX"
 mailboxes "+Sent"
@@ -61,7 +62,7 @@ set sort=reverse-threads
 set sort_aux=last-date-received
 
 # Store outgoing messages in folder they were composed in 
-folder-hook . 'set record=^'
+# folder-hook . 'set record=^'
 
 
 
