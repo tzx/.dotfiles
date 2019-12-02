@@ -9,33 +9,11 @@ set charset = "utf-8"
 # Notifications
 set new_mail_command="dunstify -r 420 'New Email'"
 
-# Keybindings
-bind index,pager \CP sidebar-prev
-bind index,pager \CN sidebar-next
-bind index,pager \CO sidebar-open
-bind pager j next-line
-bind pager k previous-line
-bind attach,index,pager \CD next-page
-bind attach,index,pager \CU previous-page
-bind pager g top
-bind pager G bottom
-bind attach,index g first-entry
-bind attach,index G last-entry
-macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
-macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
-# Open in external browser
-macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mail.html<enter><shell-escape>$BROWSER ~/.cache/mail.html<enter>"
-
-# The date you see on your first screen
-set date_format="%D %R"
-# The format you see on your first screen
-set index_format="%2C | %Z [%D] %-30.30F (%-4.4c) %s"
-# The "powerline" you see 
-set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
-
-set realname ="Timmy Xiao"
-set sendmail="/usr/bin/msmtp -a gmail"
-set from="timmyxiao1@gmail.com"
+set realname="Timmy Xiao"
+set sendmail="/usr/bin/msmtp"
+set use_from=yes
+set envelope_from=yes
+set from="mitimmy@mit.edu"
 set edit_headers=yes
 
 set mbox_type=Maildir
@@ -54,67 +32,12 @@ mailboxes "+Trash"
 mailboxes "+Drafts"
 mailboxes "+All_Mail"
 
-# Sidebar formatting
-set sidebar_visible
-set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
-set mail_check_stats
-
 set sort=reverse-threads
 set sort_aux=last-date-received
 
 # Store outgoing messages in folder they were composed in 
 # folder-hook . 'set record=^'
 
-
-
-
-
-
-
-
-
-# Neomutt Monokai Theme
-
-#---------- Colors ----------
-set my_background = "color234"
-set my_gray = "color245"
-set my_magenta = "color198"
-set my_brightmagenta = "brightcolor198"
-set my_green = "color112"
-set my_brightgreen = "brightcolor112"
-set my_red = "color160"
-set my_darkgray = "color235"
-set my_tan = "color185"
-set my_blue = "color81"
-set my_lavender = "color141"
-
-# index menu
-color index $my_gray $my_background ".*"
-color index_date $my_magenta $my_background
-color index_subject white $my_background "~R"
-color index_subject brightwhite $my_background "~U"
-color index_author $my_green $my_background "~R"
-color index_author $my_brightgreen $my_background "~U"
-
-# message display
-color normal white $my_background
-color error $my_red $my_background
-color tilde $my_darkgray $my_background
-color message white $my_background
-color markers $my_red white
-color attachment white $my_background
-color bold brightwhite $my_background
-color underline brightcolor81 $my_background
-color quoted $my_tan $my_background
-color quoted1 $my_blue $my_background
-color quoted2 $my_green $my_background
-color quoted3 $my_lavender $my_background
-color hdrdefault $my_gray $my_background
-color header brightwhite $my_background "^(Subject)"
-
-color search $my_lavender $my_background
-color status $my_gray $my_darkgray
-# header/footer menu
-color indicator $my_background $my_tan
-# thread tree arrows
-color tree $my_tan $my_background
+source ~/.config/mutt/me.aliases
+source ~/.config/mutt/theme
+source ~/.config/mutt/bindings
