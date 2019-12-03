@@ -19,6 +19,9 @@ alias ls='ls --color=auto'
 # Environmental variables
 export EDITOR=nvim
 export BROWSER=firefox
+#-- https://wiki.archlinux.org/index.php/GnuPG#mutt
+export GPG_TTY=$(tty)
+export GPG_AGENT_INFO=""
 
 #Sourcing antibody plugins
 source ~/.config/zsh/zsh_plugins.sh
