@@ -1,3 +1,6 @@
+set nocompatible
+filetype plugin on 
+syntax on 
 "Vim-Plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'itchyny/lightline.vim'
@@ -34,3 +37,4 @@ set undodir=~/.vimundo
 
 "LaTeX PDF Preview
 let g:livepreview_previewer = 'zathura'
+

@@ -16,3 +16,5 @@ macro compose v "<edit-from><kill-line><tab>" "Select from aliases"
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mail.html<enter><shell-escape>$BROWSER ~/.cache/mail.html<enter>" "Open in external browser"
+# multipart/alternative sendmail
+macro compose 'K' "| pandoc -o /tmp/neomutt-alternative.html<enter><attach-file>/tmp/neomutt-alternative.html<enter><tag-entry><previous-entry><tag-entry><group-alternatives>" "multipart"

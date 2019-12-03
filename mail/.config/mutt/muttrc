@@ -2,6 +2,9 @@ set mailcap_path = "~/.config/mutt/mailcap"
 auto_view text/html
 alternative_order text/plain text/html
 
+# Get sent mail to wrap smoothly for the recipient
+set text_flowed
+
 # Character Encoding
 set send_charset = "utf-8:iso-8859-1:us-ascii"
 set charset = "utf-8"
