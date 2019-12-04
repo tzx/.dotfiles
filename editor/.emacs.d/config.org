@@ -112,7 +112,7 @@
     (use-package base16-theme
       :ensure t
       :config
-      (load-theme 'base16-monokai t))
+      (load-theme 'base16-tomorrow-night t))
   #+END_SRC
 ** Dashboard
    #+BEGIN_SRC emacs-lisp
