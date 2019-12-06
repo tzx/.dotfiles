@@ -40,6 +40,8 @@
 #+BEGIN_SRC emacs-lisp
 (defalias 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
+** Set Browser
+(setq browse-url-browser-function 'browse-url-firefox)
 * Which-Key
   Brings up some help
   #+BEGIN_SRC emacs-lisp
