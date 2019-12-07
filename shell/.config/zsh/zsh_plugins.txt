@@ -4,3 +4,6 @@ zsh-users/zsh-autosuggestions
 # Pure prompt
 mafredri/zsh-async
 sindresorhus/pure
+
+# Additional Completions
+zsh-users/zsh-completions

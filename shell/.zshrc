@@ -1,4 +1,3 @@
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -7,11 +6,11 @@ unsetopt appendhistory autocd extendedglob notify
 
 # ZLE is emacs-like
 bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-autoload -Uz compinit promptinit
+# Command Autocompletion
+autoload -Uz compinit 
 compinit
-# End of lines added by compinstall
+# Autocomplete command line switches for aliases
+setopt COMPLETE_ALIASES
 
 #COLORS LS
 alias ls='ls --color=auto'
