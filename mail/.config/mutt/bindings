@@ -11,6 +11,7 @@ bind pager G bottom
 bind attach,index g first-entry
 bind attach,index G last-entry
 
+bind index,pager R group-reply
 #----- Macros -----
 macro compose v "<edit-from><kill-line><tab>" "Select from aliases"
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
