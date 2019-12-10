@@ -7,7 +7,6 @@ User timmyxiao1@gmail.com
 PassCmd "gopass email/gmail"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
-PipelineDepth 1
 
 # Remote Storage
 IMAPStore gmail-remote
