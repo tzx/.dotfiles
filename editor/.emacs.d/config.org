@@ -164,7 +164,6 @@
      :ensure t
      :config
      (setq company-idle-delay 0)
-     
      (global-company-mode t))
    #+END_SRC
 ** LSP
@@ -186,17 +185,18 @@
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
     :ensure t
-    :init (global-flycheck-mode))
+    :init (global-flycheck-mode)
+    :config
+    ; Turn off flycheck when editing using C-c '
+    (defun disable-flycheck-in-org-src-block ()
+    (setq-local flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+    (add-hook 'org-src-mode-hook 'disable-flycheck-in-org-src-block))
 #+END_SRC
 * Python
 ** LSP
    #+BEGIN_SRC emacs-lisp
-   (use-package lsp-python-ms
-   :ensure t
-   :hook (python-mode . (lambda()
-                           (require 'lsp-python-ms)
-			   (lsp)))
-   )
+     (use-package lsp-python-ms
+     :ensure t)
    #+END_SRC
 * LaTeX
   AUCTeX mode
