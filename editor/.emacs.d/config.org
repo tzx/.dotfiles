@@ -189,6 +189,7 @@
        :hook (lsp-mode . lsp-ui-mode))
    #+END_SRC
 ** Flycheck
+This is a syntax and linting tool for Emacs. It checks the stuff in my buffer as I type. The =display-buffer-alist= allows me to open the flycheck errors window on the bottom like a small minibuffer. This buffer is created with =flycheck-list-errors=. I also disabled flycheck when editing source blocks in org-mode because they caused some weird linting errors.
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
     :ensure t
