@@ -192,7 +192,16 @@
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
     :ensure t
-    :init (global-flycheck-mode)
+    :init 
+    (global-flycheck-mode)
+    ; Make error list on bottom similar to modern IDE
+    (add-to-list 'display-buffer-alist
+             `(,(rx bos "*Flycheck errors*" eos)
+              (display-buffer-reuse-window
+               display-buffer-in-side-window)
+              (side            . bottom)
+              (reusable-frames . visible)
+              (window-height   . 0.13)))
     :config
     ; Turn off flycheck when editing using C-c '
     (defun disable-flycheck-in-org-src-block ()
