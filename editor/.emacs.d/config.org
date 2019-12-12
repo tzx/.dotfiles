@@ -181,6 +181,13 @@
    :config
    (setq lsp-auto-configure t))
    #+END_SRC
+   
+   lisp-ui
+   #+BEGIN_SRC emacs-lisp
+     (use-package lsp-ui
+       :ensure t
+       :hook (lsp-mode . lsp-ui-mode))
+   #+END_SRC
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
