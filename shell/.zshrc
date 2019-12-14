@@ -15,9 +15,10 @@ setopt COMPLETE_ALIASES
 #COLORS LS
 alias ls='ls --color=auto'
 
-# Environmental variables
+# Default programs 
 export EDITOR=nvim
 export BROWSER=firefox
+
 #-- https://wiki.archlinux.org/index.php/GnuPG#mutt
 export GPG_TTY=$(tty)
 export GPG_AGENT_INFO=""
