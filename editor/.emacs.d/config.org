@@ -42,6 +42,14 @@
 #+END_SRC
 ** Set Browser
 (setq browse-url-browser-function 'browse-url-firefox)
+** Set UTF-8 Encoding
+#+BEGIN_SRC emacs-lisp
+  (setq locale-coding-system 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
+#+END_SRC
 * Which-Key
   Brings up some help
   #+BEGIN_SRC emacs-lisp
@@ -151,7 +159,7 @@
     :ensure t
     :custom
     (shell-pop-shell-type (quote ("vterm" "*vterm*" (lambda nil (vterm)))))
-    (shell-pop-term-shell "/bin/bash")
+    (shell-pop-term-shell "/bin/zsh")
     (shell-pop-universal-key "C-t")
     (shell-pop-window-size 30)
     (shell-pop-full-span t)
