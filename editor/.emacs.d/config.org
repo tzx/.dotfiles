@@ -165,6 +165,14 @@
     (shell-pop-full-span t)
     (shell-pop-window-position "bottom"))
 #+END_SRC
+* Projectile
+This is a project manager for projects
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :ensure t
+    :init
+    (projectile-mode 1))
+#+END_SRC
 * Autocompletion
 ** Company Mode
    #+BEGIN_SRC emacs-lisp
@@ -216,6 +224,16 @@ This is a syntax and linting tool for Emacs. It checks the stuff in my buffer as
     (defun disable-flycheck-in-org-src-block ()
     (setq-local flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
     (add-hook 'org-src-mode-hook 'disable-flycheck-in-org-src-block))
+#+END_SRC
+** Yasnippet
+Autocompletion for abbreviations, basically snippets
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+    :ensure t
+    :config
+    (use-package yasnippet-snippets
+      :ensure t)
+    (yas-reload-all))
 #+END_SRC
 * Python
 ** LSP
