@@ -40,6 +40,10 @@
 #+BEGIN_SRC emacs-lisp
 (defalias 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
+** Make scroll a bit nicer?
+#+BEGIN_SRC emacs-lisp
+  (setq scroll-conservatively 100)
+#+END_SRC
 ** Set Browser
 (setq browse-url-browser-function 'browse-url-firefox)
 ** Set UTF-8 Encoding
