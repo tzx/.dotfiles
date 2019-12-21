@@ -12,8 +12,8 @@ compinit
 # Autocomplete command line switches for aliases
 setopt COMPLETE_ALIASES
 
-#COLORS LS
-alias ls='ls --color=auto'
+# Exa is the better ls
+alias ls='exa'
 
 # Default programs 
 export EDITOR=nvim
