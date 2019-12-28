@@ -12,8 +12,8 @@ compinit
 # Autocomplete command line switches for aliases
 setopt COMPLETE_ALIASES
 
-# Exa is the better ls
-alias ls='exa'
+# ALIASES
+source ~/.config/zsh/aliases.zsh
 
 # Default programs 
 export EDITOR=nvim
