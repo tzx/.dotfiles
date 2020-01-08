@@ -44,3 +44,9 @@ set sort_aux=last-date-received
 source ~/.config/mutt/me.aliases
 source ~/.config/mutt/theme
 source ~/.config/mutt/bindings
+
+# GPG
+set crypt_autosign=yes
+set crypt_replysign=yes
+source ~/.config/mutt/gpg.rc
+set crypt_use_gpgme=yes
