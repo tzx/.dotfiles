@@ -26,3 +26,6 @@ export GPG_AGENT_INFO=""
 #Sourcing antibody plugins
 source ~/.config/zsh/zsh_plugins.sh
 
+# Powerlevel10k
+source ~/.p10k.zsh
+#source ~/Desktop/yimompt/src/init/yimompt.zsh

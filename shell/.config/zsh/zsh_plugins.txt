@@ -1,9 +1,7 @@
 # Fish like autosuggestions
 zsh-users/zsh-autosuggestions
 
-# Pure prompt
-mafredri/zsh-async
-sindresorhus/pure
+romkatv/powerlevel10k
 
 # Additional Completions
 zsh-users/zsh-completions
