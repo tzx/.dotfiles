@@ -54,6 +54,10 @@
   (set-selection-coding-system 'utf-8)
   (prefer-coding-system 'utf-8)
 #+END_SRC
+** Spaces instead of tabs
+#+BEGIN_SRC emacs-lisp
+  (setq-default indent-tabs-mode nil)
+#+END_SRC
 * Which-Key
   Brings up some help
   #+BEGIN_SRC emacs-lisp
