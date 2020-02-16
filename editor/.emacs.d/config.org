@@ -295,3 +295,15 @@ Autocompletion for abbreviations, basically snippets
   #+BEGIN_SRC 
   (setq LaTeX-item-indent 0)
   #+END_SRC
+* 6.031
+** Add checkstyle to flycheck
+#+BEGIN_SRC emacs-lisp
+  (flycheck-define-checker java-031
+    "6.031 checkstyle"
+    :command ("checkstyle" "-c https://caesar.csail.mit.edu/static/checks.xml" source)
+    :error-patterns
+    ((warning line-start "[WARN] " (file-name) ":" line ":" column ":" (message) line-end))
+    :modes java-mode)
+
+  (add-to-list 'flycheck-checkers 'java-031)
+#+END_SRC
