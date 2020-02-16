@@ -233,7 +233,18 @@ This is a syntax and linting tool for Emacs. It checks the stuff in my buffer as
     ; Turn off flycheck when editing using C-c '
     (defun disable-flycheck-in-org-src-block ()
     (setq-local flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
-    (add-hook 'org-src-mode-hook 'disable-flycheck-in-org-src-block))
+    (add-hook 'org-src-mode-hook 'disable-flycheck-in-org-src-block)
+    
+    (setq flycheck-error-list-format
+    [("File" 15 t)
+    ("Line" 5 flycheck-error-list-entry-< :right-align t)
+    ("Col" 3 nil :right-align t)
+    ("Level" 8 flycheck-error-list-entry-level-<)
+    ("ID" 6 t)
+    (#("Message (Checker)" 9 16
+    (face flycheck-error-list-checker-name))
+    0 t) 
+    ]))
 #+END_SRC
 ** Yasnippet
 Autocompletion for abbreviations, basically snippets
