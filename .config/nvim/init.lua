@@ -22,6 +22,3 @@ vim.o.background = "dark"
 vim.cmd([[ colorscheme gruvbox-material ]])
 
 require('packages')
-require('completion')
-require('telescope')
--- require('lsp')

@@ -1,5 +1,10 @@
 local nvim_lsp = require 'lspconfig'
 
+local servers = { 
+  'pyright',
+  'rust_analyzer',
+}
+
 local on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -23,13 +28,17 @@ local on_attach = function(_, bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-local servers = { 'pyright', }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+local function make_config()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  if pcall(require, 'cmp_nvim_lsp') then
+    capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  end
+  return {
     on_attach = on_attach,
     capabilities = capabilities,
   }
+end
+
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup(make_config())
 end

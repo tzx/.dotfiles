@@ -7,7 +7,13 @@ end
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
     use 'sainnhe/gruvbox-material'
-    use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
+    use { 
+        'nvim-telescope/telescope.nvim', 
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = [[ require('plugins.telescope') ]]
+    }
+
     use 'nvim-treesitter/nvim-treesitter'
 
     use {
@@ -22,7 +28,10 @@ return require('packer').startup(function()
         'saadparwaiz1/cmp_luasnip',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-nvim-lsp',
-      }
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+      },
+      config = [[ require('plugins.cmp') ]]
     }
 
     if packer_bootstrap then
