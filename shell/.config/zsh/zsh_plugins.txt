@@ -1,7 +1,0 @@
-# Fish like autosuggestions
-zsh-users/zsh-autosuggestions
-
-romkatv/powerlevel10k
-
-# Additional Completions
-zsh-users/zsh-completions
