@@ -6,7 +6,11 @@ end
 
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
-  use 'sainnhe/gruvbox-material'
+
+  use {
+    'sainnhe/gruvbox-material',
+    config = function() vim.cmd([[ colorscheme gruvbox-material ]]) end,
+  }
 
   use { 
     'nvim-telescope/telescope.nvim', 
@@ -52,6 +56,11 @@ return require('packer').startup(function()
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = [[ require('plugins.indent-blankline') ]]
+  }
+
+  use {
+    'whonore/Coqtail',
+    ft = { 'coq' },
   }
 
   if packer_bootstrap then

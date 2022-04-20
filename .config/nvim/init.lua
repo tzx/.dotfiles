@@ -1,5 +1,5 @@
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 vim.o.smartindent = true
 vim.o.expandtab = true
 vim.o.number = true
@@ -9,8 +9,7 @@ vim.o.undofile = true
 vim.o.hidden = true
 vim.o.mouse = 'a'
 vim.o.inccommand = 'split'
--- vim.o.completeopt = ''
-
+vim.o.laststatus = 3
 vim.g.mapleader = ' '
 
 if vim.fn.has('termguicolors') == 1 then
@@ -19,6 +18,6 @@ end
 
 vim.g.gruvbox_material_background = "hard"
 vim.o.background = "dark"
-vim.cmd([[ colorscheme gruvbox-material ]])
+-- vim.cmd([[ colorscheme gruvbox-material ]])
 
 require('packages')
