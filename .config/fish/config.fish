@@ -4,4 +4,6 @@ end
 
 set PATH $HOME/.local/bin $HOME/.cargo/bin $PATH
 
+set -gx EDITOR nvim
+
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
