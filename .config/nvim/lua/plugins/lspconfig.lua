@@ -1,11 +1,6 @@
 local nvim_lsp = require 'lspconfig'
 
-local servers = { 
-  'pyright',
-  'rust_analyzer',
-  'tsserver',
-  'clangd',
-}
+vim.diagnostic.config({ update_in_insert  = true })
 
 local on_attach = function(_, bufnr)
   local opts = { buffer = bufnr }
@@ -27,17 +22,32 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, "Format", vim.lsp.buf.formatting, {})
 end
 
-local function make_config()
+local function make_config(override)
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   if pcall(require, 'cmp_nvim_lsp') then
     capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
   end
-  return {
+  return vim.tbl_deep_extend("force", {
     on_attach = on_attach,
     capabilities = capabilities,
-  }
+  }, override or {})
 end
 
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup(make_config())
-end
+local servers = { 
+  'pylsp',
+  'rust_analyzer',
+  'tsserver',
+  'clangd',
+}
+
+nvim_lsp["pylsp"].setup(make_config())
+
+nvim_lsp["rust_analyzer"].setup(make_config())
+
+nvim_lsp["tsserver"].setup(make_config({
+  settings = {
+    completions = { completeFunctionCalls = true },
+  }
+}))
+
+nvim_lsp["clangd"].setup(make_config())
