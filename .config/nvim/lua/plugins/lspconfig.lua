@@ -1,6 +1,6 @@
 local nvim_lsp = require 'lspconfig'
 
-vim.diagnostic.config({ update_in_insert  = true })
+-- vim.diagnostic.config({ update_in_insert  = true })
 
 local on_attach = function(_, bufnr)
   local opts = { buffer = bufnr }
