@@ -42,7 +42,11 @@ local servers = {
 
 nvim_lsp["pylsp"].setup(make_config())
 
-nvim_lsp["rust_analyzer"].setup(make_config())
+require("rust-tools").setup({
+  server = make_config()
+  }
+)
+-- nvim_lsp["rust_analyzer"].setup(make_config())
 
 nvim_lsp["tsserver"].setup(make_config({
   settings = {

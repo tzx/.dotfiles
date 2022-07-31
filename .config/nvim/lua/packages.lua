@@ -72,7 +72,10 @@ return require('packer').startup(function()
     -- https://github.com/LunarVim/LunarVim/issues/2012 lol?
     -- don't use ft I guess....
     -- ft = { 'rust' },
-    config = function() require('rust-tools').setup({}) end,
+    -- config = function()
+    --   require('rust-tools').setup({})
+    -- end,
+  }
   }
 
   if packer_bootstrap then
