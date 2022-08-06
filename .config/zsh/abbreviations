@@ -1,0 +1,2 @@
+abbr dotfiles="git --git-dir=/home/timmy/.dotfiles/ --work-tree=/home/timmy"
+abbr ls="exa"
