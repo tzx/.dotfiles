@@ -2,6 +2,8 @@ local nvim_lsp = require 'lspconfig'
 
 -- vim.diagnostic.config({ update_in_insert  = true })
 
+-- vim.lsp.set_log_level('trace')
+
 local on_attach = function(_, bufnr)
   local opts = { buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
