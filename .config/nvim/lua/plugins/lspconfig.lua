@@ -22,7 +22,7 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', opts)
   vim.keymap.set('v', '<leader>ca', '<cmd><C-U>Lspsaga range_code_action<CR>', opts)
   vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
-  vim.api.nvim_buf_create_user_command(bufnr, "Format", vim.lsp.buf.formatting, {})
+  vim.api.nvim_buf_create_user_command(bufnr, "Format", function() vim.lsp.buf.format { async = true } end, {})
 end
 
 local function make_config(override)
