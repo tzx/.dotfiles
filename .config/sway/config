@@ -6,6 +6,7 @@
 
 # exec mako
 exec swaync
+exec dex -a
 
 ### Variables
 #
@@ -21,7 +22,7 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu bemenu-run
+set $menu fuzzel
 
 ### Output configuration
 #
@@ -82,6 +83,7 @@ set $menu bemenu-run
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+Shift+d exec bemenu-run
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

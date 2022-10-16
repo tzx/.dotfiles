@@ -26,13 +26,9 @@ local on_attach = function(_, bufnr)
 end
 
 local function make_config(override)
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  if pcall(require, 'cmp_nvim_lsp') then
-    capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-  end
   return vim.tbl_deep_extend("force", {
     on_attach = on_attach,
-    capabilities = capabilities,
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
   }, override or {})
 end
 

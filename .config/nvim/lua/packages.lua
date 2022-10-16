@@ -96,6 +96,13 @@ return require('packer').startup(function()
     end,
   }
 
+  use {
+    "ojroques/nvim-osc52",
+    config = function()
+      vim.keymap.set("x", '<leader>"', require("osc52").copy_visual)
+    end,
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end
