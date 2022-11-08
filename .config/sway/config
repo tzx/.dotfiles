@@ -5,6 +5,7 @@
 # Read `man 5 sway` for a complete reference.
 
 # exec mako
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swaync
 exec dex -a
 
