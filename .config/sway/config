@@ -221,4 +221,6 @@ bar {
     swaybar_command waybar
 }
 
+bindsym $mod+o exec killall -SIGUSR1 waybar
+
 include /etc/sway/config.d/*
