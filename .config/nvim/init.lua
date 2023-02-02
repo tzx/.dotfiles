@@ -13,4 +13,5 @@ vim.o.inccommand = 'split'
 vim.o.laststatus = 3
 vim.g.mapleader = ' '
 
-require('packages')
+--require('packages')
+require('config.lazy')
