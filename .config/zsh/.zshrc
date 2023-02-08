@@ -30,3 +30,5 @@ bindkey '^[[B' history-substring-search-down
 export PATH="$HOME/.local/bin:$PATH"
 
 alias python=python3
+
+eval "$(direnv hook zsh)"
