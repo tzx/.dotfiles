@@ -3,9 +3,10 @@
 This uses a git bare repo. To start:
 1. `alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'`
 2. `echo ".dotfiles" >> .gitignore`
-3. `dotfiles config --local status.showUntrackedFiles no`
-4. `git clone --bare <ssh-or-https-url-to-clone> $HOME/.dotfiles`
+3. `git clone --bare <ssh-or-https-url-to-clone> $HOME/.dotfiles`
+4. `dotfiles config --local status.showUntrackedFiles no`
 5. `dotfiles reset HEAD`
+6. `dotfiles restore .`
 
 Step explanations:
 1. This sets up an alias for the bare repo
