@@ -223,4 +223,5 @@ bar {
 
 bindsym $mod+o exec killall -SIGUSR1 waybar
 
+exec_always gsettings set org.gnome.desktop.interface font-name 'sans-seriff'
 include /etc/sway/config.d/*
