@@ -39,7 +39,7 @@ return {
       },
     },
     config = function(plugin, opts)
-       vim.diagnostic.config(opts.diagnostics)
+      vim.diagnostic.config(opts.diagnostics)
       local servers = opts.servers
       local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
       for _, server in ipairs(servers) do
@@ -48,6 +48,12 @@ return {
         server_opts.on_attach = opts.on_attach
         require("lspconfig")[server].setup(server_opts)
       end
+      -- TODO: SPECIFIC SERVER CONFIGS IN OPTS
+      require("lspconfig").elixirls.setup {
+        capabilities = capabilities,
+        on_attach = opts.on_attach,
+        cmd = { "elixir-ls" },
+      }
     end,
   },
 }
