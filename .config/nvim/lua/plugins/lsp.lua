@@ -4,6 +4,7 @@ return {
     dependencies = {
       "glepnir/lspsaga.nvim",
       "hrsh7th/cmp-nvim-lsp",
+      "simrat39/rust-tools.nvim",
     },
     opts = {
       diagnostics = {
@@ -54,6 +55,24 @@ return {
         on_attach = opts.on_attach,
         cmd = { "elixir-ls" },
       }
+      require("rust-tools").setup {
+        server = {
+          on_attach = opts.on_attach,
+        },
+      }
     end,
+  },
+
+  {
+    "glepnir/lspsaga.nvim",
+    event = "BufRead",
+    config = function()
+        require("lspsaga").setup({})
+    end,
+    dependencies = {
+      {"nvim-tree/nvim-web-devicons"},
+      --Please make sure you install markdown and markdown_inline parser
+      {"nvim-treesitter/nvim-treesitter"}
+    }
   },
 }
