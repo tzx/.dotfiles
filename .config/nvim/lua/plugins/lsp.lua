@@ -38,6 +38,7 @@ return {
         'pylsp',
         'tsserver',
         'clangd',
+        'zls',
       },
     },
     config = function(plugin, opts)

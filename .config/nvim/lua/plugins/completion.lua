@@ -11,6 +11,7 @@ return {
     opts = {
       history = true,
       delete_check_events = "TextChanged",
+      region_check_events = "InsertEnter",
     },
     -- stylua: ignore
     keys = {
