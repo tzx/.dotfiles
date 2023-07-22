@@ -25,10 +25,11 @@ bindkey '^[[B' history-substring-search-down
 [[ -e /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
 [[ -e /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
 [[ -e $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
-# if [ -e /home/timmy/.nix-profile/etc/profile.d/nix.sh ]; then . /home/timmy/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-# 
+
 export PATH="$HOME/.local/bin:$PATH"
 
 alias python=python3
 
 eval "$(direnv hook zsh)"
+
+[[ -f $HOME/$HOST.zsh ]] && source $HOME/$HOST.zsh

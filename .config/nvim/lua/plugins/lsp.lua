@@ -39,6 +39,7 @@ return {
         'tsserver',
         'clangd',
         'zls',
+        'gopls',
       },
     },
     config = function(plugin, opts)
@@ -51,6 +52,8 @@ return {
         server_opts.on_attach = opts.on_attach
         require("lspconfig")[server].setup(server_opts)
       end
+
+
       -- TODO: SPECIFIC SERVER CONFIGS IN OPTS
       require("lspconfig").elixirls.setup {
         capabilities = capabilities,

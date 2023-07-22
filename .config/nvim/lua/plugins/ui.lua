@@ -96,6 +96,11 @@ return {
     },
   },
 
+  {
+    "lewis6991/gitsigns.nvim",
+    config = true,
+  },
+
   { "nvim-tree/nvim-web-devicons", lazy = true },
 
   { "MunifTanjim/nui.nvim", lazy = true },
