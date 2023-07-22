@@ -1,3 +1,4 @@
+[[ -f $HOME/$HOST.zsh ]] && source $HOME/$HOST.zsh
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
@@ -31,5 +32,3 @@ export PATH="$HOME/.local/bin:$PATH"
 alias python=python3
 
 eval "$(direnv hook zsh)"
-
-[[ -f $HOME/$HOST.zsh ]] && source $HOME/$HOST.zsh
