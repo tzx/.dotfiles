@@ -27,7 +27,7 @@ return {
         end, opts)
         vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
         vim.keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename<cr>', opts)
-        vim.keymap.set('n', 'gr', '<cmd>Lspsaga lsp_finder<cr>', opts)
+        vim.keymap.set('n', 'gr', '<cmd>Lspsaga finder<cr>', opts)
         vim.keymap.set('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', opts)
         vim.keymap.set('v', '<leader>ca', '<cmd><C-U>Lspsaga range_code_action<CR>', opts)
         vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)

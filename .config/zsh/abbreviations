@@ -1,3 +1,4 @@
 abbr dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 abbr ls="exa"
+abbr ll="exa -la"
 abbr e="nvim"

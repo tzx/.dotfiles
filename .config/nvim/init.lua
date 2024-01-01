@@ -13,11 +13,16 @@ vim.o.inccommand = 'split'
 vim.o.laststatus = 3
 vim.g.mapleader = ' '
 
+vim.o.list = true
+vim.opt.listchars:append({ eol = '↲' })
+
 vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
 vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
 vim.keymap.set({'n', 'v'}, '<leader>d', '"_d')
 vim.keymap.set('n', '<Tab>', ':bnext<CR>')
 vim.keymap.set('n', '<S-Tab>', ':bprev<CR>')
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv")
 
 --require('packages')
 require('config.lazy')

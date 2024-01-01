@@ -1,33 +1,57 @@
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPost",
+    main = "ibl",
     opts = {
-      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-      space_char_blankline = " ",
-      show_current_context = true,
-      show_current_context_start = true,
+      exclude = {
+        filetypes = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
+      },
     },
   },
 
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    opts = {
-      options = {
-        icons_enabled = false,
-        globalstatus = true,
-      },
-      sections = {
-        lualine_c = {
-          {
-            'filename',
-            path = 1,
+    opts = function(_, opts)
+      return {
+        options = {
+          icons_enabled = false,
+          globalstatus = true,
+          section_separators = '',
+          component_separators = '',
+        },
+        sections = {
+          lualine_c = {
+            {
+              'filename',
+              path = 1,
+            },
+            {
+              function() return '%=' end,
+            },
+            {
+              function()
+                local msg = 'No Active Lsp'
+                local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+                local clients = vim.lsp.get_active_clients()
+                if next(clients) == nil then
+                  return msg
+                end
+                for _, client in ipairs(clients) do
+                  local filetypes = client.config.filetypes
+                  if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                    return client.name
+                  end
+                end
+                return msg
+              end,
+              color = { fg = '#ffffff', gui = 'bold' },
+            },
           },
         },
-      },
-      extensions = { "neo-tree" },
-    },
+        extensions = { "neo-tree" },
+      }
+    end,
   },
 
   {
