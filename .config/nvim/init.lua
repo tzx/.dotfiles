@@ -26,3 +26,7 @@ vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv")
 
 --require('packages')
 require('config.lazy')
+
+vim.cmd.colorscheme "catppuccin"
+-- This auto changes due to dman
+vim.o.background = "light"
