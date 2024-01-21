@@ -70,40 +70,55 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "glepnir/lspsaga.nvim",
+      "SmiteshP/nvim-navic",
       "hrsh7th/cmp-nvim-lsp",
       "simrat39/rust-tools.nvim",
     },
     opts = {
       diagnostics = {
         underline = true,
+        signs = true,
         update_in_insert = false,
         virtual_text = { spacing = 4, prefix = "●" },
         severity_sort = true,
       },
-      on_attach = function(_, bufnr)
+      on_attach = function(client, bufnr)
         local opts = { buffer = bufnr }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'K', "<cmd>Lspsaga hover_doc<cr>", opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', '<C-k>', '<cmd>Lspsaga signature_help', opts)
         vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
         vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
         vim.keymap.set('n', '<leader>wl', function()
           vim.inspect(vim.lsp.buf.list_workspace_folders())
         end, opts)
         vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename<cr>', opts)
-        vim.keymap.set('n', 'gr', '<cmd>Lspsaga finder<cr>', opts)
-        vim.keymap.set('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', opts)
-        vim.keymap.set('v', '<leader>ca', '<cmd><C-U>Lspsaga range_code_action<CR>', opts)
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('v', '<leader>ca', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
-        vim.keymap.set('n', '<leader>sl', '<cmd>Lspsaga show_line_diagnostics<CR>')
+        vim.keymap.set('n', '<leader>sl', vim.diagnostic.open_float, opts)
         vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, opts)
-        vim.keymap.set('n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<cr>', opts)
-        vim.keymap.set('n', ']e', '<cmd>Lspsaga diagnostic_jump_next<cr>', opts)
+        vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
+        vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function() vim.lsp.buf.format { async = true } end, {})
+        vim.api.nvim_create_autocmd("CursorHold", {
+          buffer = bufnr,
+          callback = function()
+            local opts = {
+              focusable = false,
+              close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+              border = 'rounded',
+              source = 'always',
+              prefix = ' ',
+              scope = 'cursor',
+            }
+            vim.diagnostic.open_float(nil, opts)
+          end
+        })
       end,
       servers = {
         'pylsp',
@@ -138,19 +153,36 @@ return {
           on_attach = opts.on_attach,
         },
       }
+
+      -- You will likely want to reduce updatetime which affects CursorHold
+      -- note: this setting is global and should be set only once
+      vim.o.updatetime = 250
+      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+        group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+        callback = function ()
+          vim.diagnostic.open_float(nil, {focus=false})
+        end
+      })
+
     end,
   },
 
   {
-    "glepnir/lspsaga.nvim",
-    event = "BufRead",
-    config = function()
-        require("lspsaga").setup({})
-    end,
-    dependencies = {
-      {"nvim-tree/nvim-web-devicons"},
-      --Please make sure you install markdown and markdown_inline parser
-      {"nvim-treesitter/nvim-treesitter"}
-    }
+    "ray-x/lsp_signature.nvim",
+    --event = "VeryLazy",
+    opts = {},
+    config = function(_, opts) require'lsp_signature'.setup(opts) end
+  },
+
+  {
+    "SmiteshP/nvim-navic",
+    opts = {
+      lsp = {
+        auto_attach = true,
+      },
+    },
+    dependencies = { 
+      "neovim/nvim-lspconfig",
+    },
   },
 }
