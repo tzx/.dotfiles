@@ -72,7 +72,6 @@ return {
     dependencies = {
       "SmiteshP/nvim-navic",
       "hrsh7th/cmp-nvim-lsp",
-      "simrat39/rust-tools.nvim",
     },
     opts = {
       diagnostics = {
@@ -82,7 +81,7 @@ return {
         virtual_text = { spacing = 4, prefix = "●" },
         severity_sort = true,
       },
-      on_attach = function(client, bufnr)
+      on_attach = function(_, bufnr)
         local opts = { buffer = bufnr }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -105,20 +104,6 @@ return {
         vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
         vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function() vim.lsp.buf.format { async = true } end, {})
-        vim.api.nvim_create_autocmd("CursorHold", {
-          buffer = bufnr,
-          callback = function()
-            local opts = {
-              focusable = false,
-              close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-              border = 'rounded',
-              source = 'always',
-              prefix = ' ',
-              scope = 'cursor',
-            }
-            vim.diagnostic.open_float(nil, opts)
-          end
-        })
       end,
       servers = {
         'pylsp',
@@ -148,22 +133,72 @@ return {
         on_attach = opts.on_attach,
         cmd = { "elixir-ls" },
       }
-      require("rust-tools").setup {
-        server = {
-          on_attach = opts.on_attach,
+    end,
+  },
+
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^3', -- Recommended
+    ft = { 'rust' },
+    config = function(_, _) 
+      setup_auto_completion()
+
+      vim.g.rustaceanvim = {
+      -- Plugin configuration
+      tools = {
+      },
+      -- LSP configuration
+      server = {
+        on_attach = function(client, bufnr)
+          -- you can also put keymaps in here
+          -- TODO: I don't really care about nice config, just copy paste
+          local opts = { buffer = bufnr }
+          vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+          vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+          vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+          vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
+          vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
+          vim.keymap.set('n', '<leader>wl', function()
+            vim.inspect(vim.lsp.buf.list_workspace_folders())
+          end, opts)
+          vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
+          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+          vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+          vim.keymap.set('n', '<leader>ca', function() vim.cmd.RustLsp('codeAction') end, opts)
+          vim.keymap.set('v', '<leader>ca', function() vim.cmd.RustLsp('codeAction') end, opts)
+          vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
+          vim.keymap.set('n', '<leader>sl', vim.diagnostic.open_float, opts)
+          vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, opts)
+          vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
+          vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
+          vim.api.nvim_buf_create_user_command(bufnr, "Format", function() vim.lsp.buf.format { async = true } end, {})
+          vim.api.nvim_create_autocmd("CursorHold", {
+            buffer = bufnr,
+            callback = function()
+              local opts = {
+                focusable = false,
+                close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+                border = 'rounded',
+                source = 'always',
+                prefix = ' ',
+                scope = 'cursor',
+              }
+              vim.diagnostic.open_float(nil, opts)
+            end
+          })
+        end,
+        settings = {
+          -- rust-analyzer language server configuration
+          ['rust-analyzer'] = {
+          },
         },
-      }
-
-      -- You will likely want to reduce updatetime which affects CursorHold
-      -- note: this setting is global and should be set only once
-      vim.o.updatetime = 250
-      vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-        group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
-        callback = function ()
-          vim.diagnostic.open_float(nil, {focus=false})
-        end
-      })
-
+      },
+      -- DAP configuration
+      dap = {
+      },
+    }
     end,
   },
 
