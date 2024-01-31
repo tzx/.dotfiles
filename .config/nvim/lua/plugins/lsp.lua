@@ -138,6 +138,12 @@ return {
 
   {
     'mrcjkb/rustaceanvim',
+    dependencies = { 
+      {
+        "lvimuser/lsp-inlayhints.nvim",
+        opts = {},
+      },
+    },
     version = '^3', -- Recommended
     ft = { 'rust' },
     config = function(_, _) 
@@ -150,6 +156,8 @@ return {
       -- LSP configuration
       server = {
         on_attach = function(client, bufnr)
+          require("lsp-inlayhints").on_attach(client, bufnr)
+          require("lsp-inlayhints").show()
           -- you can also put keymaps in here
           -- TODO: I don't really care about nice config, just copy paste
           local opts = { buffer = bufnr }
