@@ -29,4 +29,4 @@ require('config.lazy')
 
 vim.cmd.colorscheme "catppuccin"
 -- This auto changes due to dman
-vim.o.background = "dark"
+vim.o.background = "light"

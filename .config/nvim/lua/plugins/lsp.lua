@@ -106,7 +106,6 @@ return {
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function() vim.lsp.buf.format { async = true } end, {})
       end,
       servers = {
-        'pylsp',
         'tsserver',
         'clangd',
         'zls',
@@ -125,6 +124,13 @@ return {
         server_opts.on_attach = opts.on_attach
         require("lspconfig")[server].setup(server_opts)
       end
+
+      local lspconfig = require('lspconfig')
+      lspconfig.pyright.setup {
+        capabilities = capabilities,
+        on_attach = opts.on_attach,
+        root_dir = lspconfig.util.root_pattern('pyproject.toml', 'pyrightconfig.json', '.git'),
+      }
 
 
       -- TODO: SPECIFIC SERVER CONFIGS IN OPTS
