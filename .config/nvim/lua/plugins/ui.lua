@@ -87,7 +87,7 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     event = "VeryLazy",
-    tag = "v3.1.0",
+    tag = "v4.6.0",
     opts = {
       options = {
         buffer_close_icon = '',

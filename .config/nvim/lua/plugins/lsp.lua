@@ -145,12 +145,9 @@ return {
   {
     'mrcjkb/rustaceanvim',
     dependencies = { 
-      {
-        "lvimuser/lsp-inlayhints.nvim",
-        opts = {},
-      },
     },
-    version = '^3', -- Recommended
+    version = '^4', -- Recommended
+    lazy = false,
     ft = { 'rust' },
     config = function(_, _) 
       setup_auto_completion()
@@ -162,8 +159,7 @@ return {
       -- LSP configuration
       server = {
         on_attach = function(client, bufnr)
-          require("lsp-inlayhints").on_attach(client, bufnr)
-          require("lsp-inlayhints").show()
+          vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
           -- you can also put keymaps in here
           -- TODO: I don't really care about nice config, just copy paste
           local opts = { buffer = bufnr }
@@ -185,8 +181,6 @@ return {
           vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
           vim.keymap.set('n', '<leader>sl', vim.diagnostic.open_float, opts)
           vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, opts)
-          vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
-          vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
           vim.api.nvim_buf_create_user_command(bufnr, "Format", function() vim.lsp.buf.format { async = true } end, {})
           vim.api.nvim_create_autocmd("CursorHold", {
             buffer = bufnr,
