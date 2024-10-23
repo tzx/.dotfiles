@@ -1,13 +1,17 @@
 return {
   {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim"
-    },
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({})
+    end,
     keys = {
-      { '<C-p>', "<cmd>Telescope find_files<cr>", desc = "find files" },
-      { '<leader>g', "<cmd>Telescope live_grep<cr>", desc = "live grep" },
-      { '<leader>b', "<cmd>Telescope buffers<cr>", desc = "buffers" },
+      { '<C-p>', "<cmd>FzfLua files<cr>", desc = "find files" },
+      { '<leader>g', "<cmd>FzfLua live_grep<cr>", desc = "live grep" },
+      { '<leader>b', "<cmd>FzfLua buffers<cr>", desc = "buffers" },
+      { '<leader>B', "<cmd>FzfLua builtin<cr>", desc = "builtin" },
     },
   }
 }

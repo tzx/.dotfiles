@@ -92,9 +92,9 @@ return {
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
         vim.keymap.set('v', '<leader>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
+        vim.keymap.set('n', '<leader>so', '<cmd>FzfLua lsp_document_symbols<cr>', opts)
         vim.keymap.set('n', '<leader>sl', vim.diagnostic.open_float, opts)
-        vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, opts)
+        vim.keymap.set('n', '<leader>sd', '<cmd>FzfLua diagnostics_document<cr>', opts)
         vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
         vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function() vim.lsp.buf.format { async = true } end, {})
@@ -181,9 +181,9 @@ return {
           vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
           vim.keymap.set('n', '<leader>ca', function() vim.cmd.RustLsp('codeAction') end, opts)
           vim.keymap.set('v', '<leader>ca', function() vim.cmd.RustLsp('codeAction') end, opts)
-          vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
+          vim.keymap.set('n', '<leader>so', '<cmd>FzfLua lsp_document_symbols<cr>', opts)
           vim.keymap.set('n', '<leader>sl', vim.diagnostic.open_float, opts)
-          vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, opts)
+          vim.keymap.set('n', '<leader>sd', '<cmd>FzfLua diagnostics_document<cr>', opts)
           vim.api.nvim_buf_create_user_command(bufnr, "Format", function() vim.lsp.buf.format { async = true } end, {})
           vim.api.nvim_create_autocmd("CursorHold", {
             buffer = bufnr,
