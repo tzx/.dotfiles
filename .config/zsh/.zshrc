@@ -24,7 +24,7 @@ fi
 
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
-autoload -Uz promptinit && promptinit && prompt pure
+# autoload -Uz promptinit && promptinit && prompt pure
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -62,3 +62,4 @@ FZF-EOF"
 }
 
 [[ -e ~/.config/zsh/glean.zsh ]] && source ~/.config/zsh/glean.zsh
+eval "$(starship init zsh)"

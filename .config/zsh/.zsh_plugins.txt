@@ -4,4 +4,4 @@ zsh-users/zsh-history-substring-search
 
 zdharma-continuum/fast-syntax-highlighting kind:defer
 olets/zsh-abbr    kind:defer
-sindresorhus/pure kind:fpath
+# sindresorhus/pure kind:fpath
