@@ -1,11 +1,13 @@
+abbr "alog"="aws sso login --sso-session timmy-aws"
+abbr "br"="git branch -vv --sort=-committerdate | fzf --height=50% --reverse --info=inline | awk '{print \$1;}' | xargs git switch"
 abbr "dotfiles"="git --git-dir=\$HOME/.dotfiles/ --work-tree=\$HOME"
 abbr "e"="nvim"
+abbr "fe"="fzf | xargs nvim"
 abbr "gau"="git add -u"
 abbr "gcm"="git commit -m"
 abbr "gd"="git diff HEAD"
+abbr "glog"="gcloud auth login && gcloud auth application-default login"
 abbr "gss"="git status --short"
 abbr "ll"="exa -la"
 abbr "ls"="exa"
-
-
-abbr "glog"="gcloud auth login && gcloud auth application-default login"
+abbr "switch_me_aws"="export AWS_PROFILE=\$(aws configure list-profiles | fzf)"

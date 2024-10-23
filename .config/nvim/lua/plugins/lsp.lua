@@ -38,12 +38,6 @@ local setup_auto_completion = function()
         return
       end
 
-      -- Tsserver usually works poorly. Sorry you work with bad languages
-      -- You can remove this line if you know what you're doing :)
-      if client.name == 'tsserver' then
-        return
-      end
-
       -- Create an autocmd that will run *before* we save the buffer.
       --  Run the formatting command for the LSP that has just attached.
       vim.api.nvim_create_autocmd('BufWritePre', {
@@ -106,10 +100,11 @@ return {
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function() vim.lsp.buf.format { async = true } end, {})
       end,
       servers = {
-        'tsserver',
         'clangd',
         'zls',
         'gopls',
+        -- 'pylyzer',
+        -- 'pylsp',
       },
     },
     config = function(plugin, opts)
@@ -126,7 +121,7 @@ return {
       end
 
       local lspconfig = require('lspconfig')
-      lspconfig.pyright.setup {
+      lspconfig.basedpyright.setup {
         capabilities = capabilities,
         on_attach = opts.on_attach,
         root_dir = lspconfig.util.root_pattern('pyproject.toml', 'pyrightconfig.json', '.git'),
@@ -139,6 +134,14 @@ return {
         on_attach = opts.on_attach,
         cmd = { "elixir-ls" },
       }
+      -- require("lspconfig").java_language_server.setup {
+      --   capabilities = capabilities,
+      --   on_attach = opts.on_attach,
+      --   cmd = { "/Users/timmyxiao/code/java-language-server/dist/lang_server_mac.sh" },
+      --   on_init = function(client)
+      --     client.offset_encoding = "utf-8"
+      --   end,
+      -- }
     end,
   },
 

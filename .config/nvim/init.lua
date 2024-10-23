@@ -27,6 +27,6 @@ vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv")
 --require('packages')
 require('config.lazy')
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "gruvbox-material"
 -- This auto changes due to dman
-vim.o.background = "dark"
+vim.o.background = "light"
