@@ -21,7 +21,6 @@ return {
       }
     },
   },
-  -- Keeping this commented, because I still like it :)
   {
     "sainnhe/gruvbox-material",
     lazy = false,

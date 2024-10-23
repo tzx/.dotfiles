@@ -94,6 +94,7 @@ return {
         vim.keymap.set('n', '<leader>so', '<cmd>FzfLua lsp_document_symbols<cr>', opts)
         vim.keymap.set('n', '<leader>sl', vim.diagnostic.open_float, opts)
         vim.keymap.set('n', '<leader>sd', '<cmd>FzfLua diagnostics_document<cr>', opts)
+        vim.keymap.set('n', '<leader>h', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end)
         vim.api.nvim_buf_create_user_command(bufnr, "Format", function() vim.lsp.buf.format { async = true } end, {})
       end,
       servers = {
