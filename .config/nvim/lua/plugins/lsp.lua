@@ -2,7 +2,7 @@
 local setup_auto_completion = function()
   -- Switch for controlling whether you want autoformatting.
   --  Use :KickstartFormatToggle to toggle autoformatting on or off
-  local format_is_enabled = true
+  local format_is_enabled = false
   vim.api.nvim_create_user_command('AutoFormatToggle', function()
     format_is_enabled = not format_is_enabled
     print('Setting autoformatting to: ' .. tostring(format_is_enabled))
@@ -101,6 +101,8 @@ return {
         'clangd',
         'zls',
         'gopls',
+        'dockerls',
+        'vtsls',
         -- 'pylyzer',
         -- 'pylsp',
       },
@@ -122,7 +124,13 @@ return {
       lspconfig.basedpyright.setup {
         capabilities = capabilities,
         on_attach = opts.on_attach,
-        root_dir = lspconfig.util.root_pattern('pyproject.toml', 'pyrightconfig.json', '.git'),
+        root_dir = function(fname)
+          -- TIL: https://help.interfaceware.com/v6/lua-magic-characters; I need %
+          if string.find(fname, 'bazel%-out') ~= nil then
+            return
+          end
+          return lspconfig.util.root_pattern('pyproject.toml', 'pyrightconfig.json', '.git')(fname)
+        end
       }
 
 
@@ -132,6 +140,25 @@ return {
         on_attach = opts.on_attach,
         cmd = { "elixir-ls" },
       }
+      require("lspconfig").gopls.setup {
+        capabilities = capabilities,
+        on_attach = opts.on_attach,
+        settings = {
+          gopls = {
+            env = {
+              GOPACKAGESDRIVER = '../tools/gopackagesdriver.sh'
+            },
+            directoryFilters = {
+              "-.bazel",
+              "-bazel-bin",
+              "-bazel-out",
+              "-bazel-testlogs",
+              "-bazel-com_github_askscio_scio",
+            },
+          },
+        },
+      }
+
       -- require("lspconfig").java_language_server.setup {
       --   capabilities = capabilities,
       --   on_attach = opts.on_attach,

@@ -9,7 +9,8 @@ return {
     end,
     keys = {
       { '<C-p>', "<cmd>FzfLua files<cr>", desc = "find files" },
-      { '<leader>g', "<cmd>FzfLua live_grep<cr>", desc = "live grep" },
+      { '<leader>g', "<cmd>FzfLua live_grep_glob<cr>", desc = "live grep" },
+      { '<leader>G', "<cmd>FzfLua live_grep<cr>", desc = "live grep" },
       { '<leader>b', "<cmd>FzfLua buffers<cr>", desc = "buffers" },
       { '<leader>B', "<cmd>FzfLua builtin<cr>", desc = "builtin" },
     },

@@ -24,9 +24,12 @@ vim.keymap.set('n', '<S-Tab>', ':bprev<CR>')
 vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv")
 
---require('packages')
 require('config.lazy')
 
 vim.cmd.colorscheme "gruvbox-material"
--- This auto changes due to dman
-vim.o.background = "light"
+
+
+-- No longer needed because there nvim now autochanges colorscheme based on time
+-- vim.o.background = "light"
+-- vim.cmd.colorscheme "catppuccin-mocha"
+-- vim.o.background = "dark"

@@ -17,11 +17,13 @@ source $ANTIDOTE_DIR/antidote.zsh
 antidote load
 
 fpath=(~/.nix-profile/share/zsh/site-functions $fpath)
-if type brew >> /dev/null; then
+if [ -d "/opt/homebrew/" ]; then
+  export PATH="/opt/homebrew/bin:$PATH"
   HOMEBREW_PREFIX=$(brew --prefix)
   fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
 fi
 
+autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 # autoload -Uz promptinit && promptinit && prompt pure
@@ -29,16 +31,13 @@ zstyle ':completion:*' menu select
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-[[ -e /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
-[[ -e /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
-if [ -n "${commands[fzf-share]}" ]; then
-  source "$(fzf-share)/key-bindings.zsh"
-  source "$(fzf-share)/completion.zsh"
+if  [ -x "$(command -v fzf)" ]; then
+  source <(fzf --zsh)
+  export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 fi
 [[ -e $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
 
 export PATH="$HOME/.local/bin:$PATH"
-
 alias python=python3
 
 eval "$(direnv hook zsh)"
@@ -63,3 +62,5 @@ FZF-EOF"
 
 [[ -e ~/.config/zsh/glean.zsh ]] && source ~/.config/zsh/glean.zsh
 eval "$(starship init zsh)"
+
+alias pip=pip3
