@@ -1,0 +1,20 @@
+font-family = IosevkaFixed Nerd Font
+# theme = GruvboxLight
+# theme = catppuccin-mocha
+theme = light:xcodelighthc,dark:xcodedarkhc
+macos-option-as-alt = true
+keybind = shift+enter=text:\n
+
+# custom-shader = ./shaders/cursor_smear.gsl
+custom-shader = ./shaders/cursor_blaze.gsl
+
+# custom-shader = ./shaders/starfield-colors.gsl
+# custom-shader = ./shaders/bettercrt.gsl
+# custom-shader = ./shaders/glitchy.gsl
+# custom-shader = ./shaders/water.gsl
+# custom-shader = ./shaders/bloom.gsl
+# custom-shader = ./shaders/drunkard.gsl
+# custom-shader = ./shaders/retro-terminal.gsl
+# custom-shader = ./shaders/tft.gsl
+
+# custom-shader = ./shaders/fireworks-rocket.gsl
