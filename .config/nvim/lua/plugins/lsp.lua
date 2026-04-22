@@ -140,22 +140,30 @@ return {
         on_attach = opts.on_attach,
         cmd = { "elixir-ls" },
       }
+
+      local gopackagesdriver_path = '../tools/gopackagesdriver.sh'
+      local gopls_settings = {
+        directoryFilters = {
+          "-.bazel",
+          "-bazel-bin",
+          "-bazel-out",
+          "-bazel-testlogs",
+          "-bazel-com_github_askscio_scio",
+        },
+      }
+
+      -- Only set env if the gopackagesdriver script exists
+      if vim.fn.filereadable(gopackagesdriver_path) == 1 then
+        gopls_settings.env = {
+          GOPACKAGESDRIVER = gopackagesdriver_path
+        }
+      end
+
       require("lspconfig").gopls.setup {
         capabilities = capabilities,
         on_attach = opts.on_attach,
         settings = {
-          gopls = {
-            env = {
-              GOPACKAGESDRIVER = '../tools/gopackagesdriver.sh'
-            },
-            directoryFilters = {
-              "-.bazel",
-              "-bazel-bin",
-              "-bazel-out",
-              "-bazel-testlogs",
-              "-bazel-com_github_askscio_scio",
-            },
-          },
+          gopls = gopls_settings,
         },
       }
 

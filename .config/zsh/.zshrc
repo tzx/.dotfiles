@@ -28,6 +28,11 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 # autoload -Uz promptinit && promptinit && prompt pure
 
+# Open current shell line in $EDITOR
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
@@ -63,4 +68,12 @@ FZF-EOF"
 [[ -e ~/.config/zsh/glean.zsh ]] && source ~/.config/zsh/glean.zsh
 eval "$(starship init zsh)"
 
+# pnpm
+export PNPM_HOME="/Users/timmyxiao/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+#
 alias pip=pip3

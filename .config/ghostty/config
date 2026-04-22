@@ -1,7 +1,7 @@
 font-family = IosevkaFixed Nerd Font
 # theme = GruvboxLight
 # theme = catppuccin-mocha
-theme = light:xcodelighthc,dark:xcodedarkhc
+theme = light:Gruvbox Light Hard,dark:Gruvbox Dark Hard
 macos-option-as-alt = true
 keybind = shift+enter=text:\n
 
