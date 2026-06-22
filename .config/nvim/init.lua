@@ -1,10 +1,12 @@
 vim.pack.add({
   "https://github.com/sainnhe/gruvbox-material",
   "https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/nvim-mini/mini.statusline",
+  "https://github.com/nvim-mini/mini.tabline",
+  "https://github.com/nvim-mini/mini.indentscope",
   "https://github.com/j-hui/fidget.nvim",
   "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/folke/which-key.nvim",
-  "https://github.com/lukas-reineke/indent-blankline.nvim",
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/linrongbin16/gitlinker.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -45,6 +47,9 @@ vim.g.gruvbox_material_foreground = "original"
 vim.cmd.colorscheme "gruvbox-material"
 
 
+require("mini.statusline").setup({})
+require("mini.tabline").setup({})
+require("mini.indentscope").setup({})
 require("fidget").setup({})
 
 local fzf = require("fzf-lua")
@@ -54,7 +59,6 @@ vim.keymap.set("n", "<leader>b", fzf.buffers)
 vim.keymap.set("n", "<leader>B", fzf.builtin)
 
 require("which-key").setup({})
-require("ibl").setup({})
 require("gitsigns").setup({
   current_line_blame = true,
 })

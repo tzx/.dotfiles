@@ -29,6 +29,18 @@
       "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
+    "mini.indentscope": {
+      "rev": "d3f955f09b1a05d25d5a7740338fba2baaee41a3",
+      "src": "https://github.com/nvim-mini/mini.indentscope"
+    },
+    "mini.statusline": {
+      "rev": "b5547f44560dae3ccd81f914256fa6f705837022",
+      "src": "https://github.com/nvim-mini/mini.statusline"
+    },
+    "mini.tabline": {
+      "rev": "7e8584a06b86902c64227e4abd0c39ae74061101",
+      "src": "https://github.com/nvim-mini/mini.tabline"
+    },
     "nvim-lspconfig": {
       "rev": "bfcc0171a43f22afa61d927ffe9fcb6cb85dc99e",
       "src": "https://github.com/neovim/nvim-lspconfig"
