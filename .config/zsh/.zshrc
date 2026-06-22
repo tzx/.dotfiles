@@ -42,7 +42,7 @@ if  [ -x "$(command -v fzf)" ]; then
 fi
 [[ -e $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 alias python=python3
 
 eval "$(direnv hook zsh)"
